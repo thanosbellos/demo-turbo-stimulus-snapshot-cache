@@ -23,8 +23,9 @@ export default class extends Controller {
 
   disconnect() {
     console.log("Disconnecting");
-    const child = this.outputTarget.firstChild;
-    this.outputTarget.removeChild(child);
+    // const child = this.outputTarget.firstElementChild;
+    // this.outputTarget.removeChild(child);
+    this.outputTarget.innerHTML = "";
   }
 
   get isPreview() {
