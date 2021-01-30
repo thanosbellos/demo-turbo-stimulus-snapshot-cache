@@ -13,11 +13,21 @@ export default class extends Controller {
   static targets = ["output"];
 
   connect() {
+    console.log("Connecting");
     this.outputTarget.innerHTML += "<p>Hello, Stimulus!</p>";
+
+    if (this.isPreview) {
+      console.log("Connecting from a preview");
+    }
   }
 
   disconnect() {
+    console.log("Disconnecting");
     const child = this.outputTarget.firstChild;
     this.outputTarget.removeChild(child);
+  }
+
+  get isPreview() {
+    return document.documentElement.hasAttribute("data-turbo-preview");
   }
 }
